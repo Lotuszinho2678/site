@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meditação Guiada</title>
+  <style>
+
+
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: #333;
+      background: #fcfcfc;
+      
+    }
+
+    .navbar {
+      background-color: #04acdc;
+      color: #fff;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar nav a {
+      color: #fff;
+      margin-left: 1rem;
+      text-decoration: none;
+    }
+
+    .intro {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1rem;
+      text-align: left;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .intro img {
+      width: 50%;
+      border-radius: 8px;
+      margin-right: 2rem;
+    }
+
+    .intro .content {
+      flex: 1;
+    }
+
+    .intro h2 {
+      font-size: 2.5rem;
+      color: #027595;
+    }
+
+    .intro p {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+    }
+
+    .section {
+      padding: 3rem 1rem;
+      text-align: center;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .cards-container {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 1.5rem;
+      width: 300px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .video-card iframe {
+      width: 100%;
+      border: none;
+      border-radius: 8px;
+    }
+
+    .tips-section {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      margin-top: 2rem;
+      padding: 1rem;
+    }
+
+    .tips-section img {
+      width: 300px;
+      border-radius: 8px;
+    }
+
+    .tips-section p {
+      flex: 1;
+      font-size: 1.1rem;
+      text-align: left;
+    }
+
+    .footer {
+      background-color: #027595;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    /* Estilos para a boneca de respiração */
+    .breathing-doll {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      margin: auto;
+      animation: breath 4s infinite;
+    }
+
+    .meditation-type {
+            margin: 15px 0;
+            text-align: left;
+            width: 80%;
+            max-width: 600px;
+            margin-left: 500px;
+        }
+
+        .meditation-type h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .meditation-btn, .info-btn, .stop-btn {
+            padding: 8px 16px;
+            font-size: 1rem;
+            background-color: #04acd4;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 5px;
+        }
+
+        .meditation-btn:hover, .info-btn:hover, .stop-btn:hover {
+            background-color: #7ce0fc;
+        }
+
+        #instruction {
+            margin-top: 20px;
+            font-size: 1.2rem;
+        }
+
+
+
+    @keyframes breath {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+    }
+
+    .doll {
+      width: 100%;
+      height: 100%;
+      background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLiy-y25jZNJGZKzOPz1NULz9xpev43e0gFA&s');
+      background-size: cover;
+      border-radius: 50%;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+</head>
+<body>
+ 
+
+  <!-- Introdução -->
+  <section id="intro" class="intro">
+    <img src="img/meditacao.jpg" alt="Imagem de meditação">
+    <div class="content">
+      <h2>O que é Meditação?</h2>
+      <p>A meditação é uma prática que envolve técnicas para focar a mente e promover um estado de relaxamento e concentração. Ela é utilizada para reduzir o estresse, aumentar a autoconciência e melhorar a qualidade de vida.</p>
+    </div>
+  </section>
+
+  <!-- Benefícios da Meditação -->
+  <section id="benefits" class="section">
+    <h2>Benefícios da Meditação</h2>
+    <div class="cards-container">
+      <div class="card">
+        <img src="img/relaxamento.webp" alt="Relaxamento">
+        <h3>Redução de Estresse</h3>
+        <p>Meditação regular reduz significativamente os níveis de estresse, promovendo calma e serenidade.</p>
+      </div>
+      <div class="card">
+        <img src="img/foco.avif" alt="Foco">
+        <h3>Foco e Clareza Mental</h3>
+        <p>Melhore a concentração e a capacidade de resolver problemas com práticas frequentes de meditação.</p>
+      </div>
+      <div class="card">
+        <img src="img/equilibrio.webp" alt="Equilíbrio Emocional">
+        <h3>Equilíbrio Emocional</h3>
+        <p>Desenvolva estabilidade emocional, aprenda a lidar melhor com sentimentos e alcance paz interior.</p>
+      </div>
+      <div class="card">
+        <img src="img/bemestar.webp" alt="Bem-estar">
+        <h3>Melhoria no Bem-estar</h3>
+        <p>Práticas de meditação promovem um estado de bem-estar contínuo e melhor qualidade de vida.</p>
+      </div>
+      <div class="card">
+        <img src="img/sono.jfif" alt="Sono Tranquilo">
+        <h3>Melhoria no Sono</h3>
+        <p>Ajuda a melhorar a qualidade do sono, permitindo que você acorde renovado e energizado.</p>
+      </div>
+      <div class="card">
+        <img src="img/calma.webp" alt="Calma">
+        <h3>Calma e Serenidade</h3>
+        <p>A meditação é uma ferramenta poderosa para encontrar calma interior e serenidade no dia a dia.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vídeos de Meditação Guiada -->
+  <section id="videos" class="section">
+    <h2>Vídeos de Meditação Guiada</h2>
+    <div class="cards-container">
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/vJfwuCB5C8o" title="MEDITAÇÃO GUIADA | Para Calma e Equilíbrio" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+         <p>Meditação para calma e Equilíbrio</p>
+      </div>
+      <div class="video-card">
+        <iframe  src="https://www.youtube.com/embed/LUHspFWn0q4" title="MEDITAÇÃO GUIADA | Para Amor Próprio ✨🧡✨" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <p>Meditação para Amor Próprio </p>
+      </div>
+      <div class="video-card">
+        <iframe  src="https://www.youtube.com/embed/mzAqzL2XIQA" title="Meditação para ANSIEDADE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <p>Meditação para Ansiedade</p>
+      </div>
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/oeExtp56oBI" title="MEDITAÇÃO GUIADA E RESPIRAÇÃO PARA O EQUILÍBRIO INTERNO!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <p>Meditação para Equilíbrio Emocional</p>
+      </div>
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/GHiCCub27CA" title="Meditação para Dormir um Sono profundo - Acalmar a mente e deixar ir" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <p>Meditação para Sono Profundo</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Explicativa -->
+  <section class="section">
+    <h2>Agora que você já sabe o que é meditação e seus beneficios, vamos conhecer os tipos dela</h2>
+   
+  </section>
+
+
+<!-- Tipos de Meditação -->
+<div class="meditation-type">
+  <h3>Meditação Mindfulness</h3>
+  <button onclick="showInfo('mindfulness')" class="info-btn">Para que serve?</button>
+  <button onclick="startMindfulness()" class="meditation-btn">Iniciar Meditação</button>
+  <button onclick="stopMeditation()" class="stop-btn">Parar Meditação</button>
+  <p id="mindfulness-info"></p>
+</div>
+
+<div class="meditation-type">
+  <h3>Meditação de Respiração Profunda</h3>
+  <button onclick="showInfo('respiration')" class="info-btn">Para que serve?</button>
+  <button onclick="startDeepBreathing()" class="meditation-btn">Iniciar Meditação</button>
+  <button onclick="stopMeditation()" class="stop-btn">Parar Meditação</button>
+  <p id="respiration-info"></p>
+</div>
+
+<div class="meditation-type">
+  <h3>Meditação Guiada para Relaxamento</h3>
+  <button onclick="showInfo('relaxation')" class="info-btn">Para que serve?</button>
+  <button onclick="startGuidedRelaxation()" class="meditation-btn">Iniciar Meditação</button>
+  <button onclick="stopMeditation()" class="stop-btn">Parar Meditação</button>
+  <p id="relaxation-info"></p>
+</div>
+
+<div class="meditation-container">
+  <div class="character"></div>
+  <p id="instruction"></p>
+</div>
+
+<script>
+  let meditationInterval;
+
+  function showInfo(type) {
+      const info = {
+          mindfulness: "A meditação mindfulness ajuda a focar no presente e aliviar o estresse. Ao praticá-la regularmente, você treina sua mente para viver o momento e lidar melhor com ansiedades.",
+          respiration: "A meditação de respiração profunda melhora a concentração, reduz o estresse e oxigena o corpo. Essa prática é excelente para recarregar as energias e acalmar a mente.",
+          relaxation: "A meditação guiada para relaxamento ajuda a aliviar a tensão e promover um estado de calma profunda. Ideal para aqueles que buscam um momento de tranquilidade e autocuidado."
+      };
+      document.getElementById(`${type}-info`).innerText = info[type];
+  }
+
+  function startMindfulness() {
+      startMeditation("Meditação Mindfulness: Focando na respiração e no presente.");
+  }
+
+  function startDeepBreathing() {
+      startMeditation("Meditação de Respiração Profunda: Inspire e expire profundamente.");
+  }
+
+  function startGuidedRelaxation() {
+      startMeditation("Meditação Guiada para Relaxamento: Ouça a sua voz interior e relaxe.");
+  }
+
+  function startMeditation(instruction) {
+      document.getElementById("instruction").innerText = instruction;
+      meditationInterval = setInterval(() => {
+          document.getElementById("instruction").innerText = instruction + " (em andamento)";
+      }, 2000);
+  }
+
+  function stopMeditation() {
+      clearInterval(meditationInterval);
+      document.getElementById("instruction").innerText = "Meditação parada.";
+  }
+
+</script>
+<!-- Dicas de Autocuidado -->
+  <section id="tips" class="section">
+    <h2>Dicas de Autocuidado</h2>
+    <div class="tips-section">
+      <img src="https://blog.sabin.com.br/wp-content/uploads/2021/11/como-os-exercicios-fisicos-ajudam-na-saude-1.jpeg" alt="Autocuidado">
+      <p>
+       Pratique exercícios físicos:<br><br> A prática de exercícios físicos é importante para a saúde física e mental, e pode ajudar a melhorar a qualidade de vida.
+      </p>
+    </div>
+
+    <div class="tips-section">
+      <img src="https://www.botoli.com.br/cdn/imagens/paginas/home/_bbc091c929dc1f26c23eb47a245cbe76.jpg" alt="Autocuidado">
+      <p>
+        Beba Água:,<br><br> ingerir regulamente água previne alguns problemas de saúde, como cálculos renais. O líquido elimina toxinas e auxilia os rins no processo de filtragem. De forma semelhante, ela atua nos intestinos, evitando a prisão de ventre.
+      </p>
+    </div>
+
+
+    <div class="tips-section">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQut466LyMUrwWA4q0UhiUi1L3EYKyBBBsKYA&s" alt="Autocuidado">
+      <p>
+        Durma bem : <br> <br>bem ajuda o organismo a combater infecções e a manter-se saudável, pois durante o sono o corpo produz proteínas extras que fazem o sistema imune ficar mais forte, principalmente em situações de estresse.   </p>
+    </div>
+  </section>
+
+  <!-- Animação da Boneca -->
+  <section class="section">
+    <h2>Respiração Guiada com a Boneca</h2>
+    <div class="breathing-doll">
+      <div class="doll"></div>
+    </div>
+    <p>Siga a animação da boneca e respire profundamente. Inspire pelo nariz e expire pela boca. Repita algumas vezes.</p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2024 Meditação Guiada. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    // Aqui você pode adicionar scripts JavaScript adicionais se necessário.
+  </script>
+</body>
+</html>
